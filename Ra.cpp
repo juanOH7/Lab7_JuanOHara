@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 {
 	vector<string> Historial;
 	vector<Rc> listaRac;
-	int opcMen, num, den;
+	int opcMen, num, den, opcRac1, opcRac2;
 	do
 	{
 		menu();
@@ -35,7 +35,16 @@ int main(int argc, char const *argv[])
 				cout << "no hay Racionales para sumar\n";
 			}else
 			{
-
+				for (int i = 0; i < listaRac.size(); ++i)
+				{
+					cout << i + 1 << "-" << listaRac[i] << "\n";
+				}
+				cout << "OP1:";
+				cin >> opcRac1;
+				cout << "OP2:";
+				cin >> opcRac2;
+				Rc sum(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Historial.push_back(sum.toString());
 			}
 		}
 		else if (opcMen == 3)
@@ -45,7 +54,16 @@ int main(int argc, char const *argv[])
 				cout << "no hay Racionales para restar\n";
 			}else
 			{
-				
+				for (int i = 0; i < listaRac.size(); ++i)
+				{
+					cout << i + 1 << "-" << listaRac[i] << "\n";
+				}
+				cout << "OP1:";
+				cin >> opcRac1;
+				cout << "OP2:";
+				cin >> opcRac2;
+				Rc res(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Historial.push_back(res.toString());
 			}
 		}
 		else if (opcMen == 4)
@@ -55,7 +73,16 @@ int main(int argc, char const *argv[])
 				cout << "no hay Racionales para multiplicar\n";
 			}else
 			{
-				
+				for (int i = 0; i < listaRac.size(); ++i)
+				{
+					cout << i + 1 << "-" << listaRac[i] << "\n";
+				}
+				cout << "OP1:";
+				cin >> opcRac1;
+				cout << "OP2:";
+				cin >> opcRac2;
+				Rc mult(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Historial.push_back(mult.toString());
 			}
 		}
 		else if (opcMen ==5)
@@ -65,7 +92,16 @@ int main(int argc, char const *argv[])
 				cout << "no hay Racionales para dividir\n";
 			}else
 			{
-				
+				for (int i = 0; i < listaRac.size(); ++i)
+				{
+					cout << i + 1 << "-" << listaRac[i] << "\n";
+				}
+				cout << "OP1:";
+				cin >> opcRac1;
+				cout << "OP2:";
+				cin >> opcRac2;
+				Rc di(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Historial.push_back(di.toString());
 			}
 		}
 		else if (opcMen == 6)
@@ -77,8 +113,8 @@ int main(int argc, char const *argv[])
 			{
 				for (int i = 0; i < Historial.size(); ++i)
 				{
-					cout << i << "-" << Historial[i] << "\n";
-				}	
+					cout << i + 1 << "-" << Historial[i] << "\n";
+				}
 			}
 		}
 		else

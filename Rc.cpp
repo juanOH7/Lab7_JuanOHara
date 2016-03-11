@@ -81,9 +81,35 @@ string Rc::toString() const
 
 const Rc operator + (const Rc& L, const Rc& R)
 {
+	int temNumL = L.num;
+	int temDenL = L.den;
+	int temNumD = R.num;
+	int temDenD = R.den;
+	Rc fin;
+	if (L.den == D.den)
+	{
+		fin = ((temNumL * temDenD) + (temNumD * temDenL) ) / temDen; 
+	}else
+	{
+		fin = ((temNumL * temDenD) + (temNumD * temDenL) ) / (temDen * temDenL); 		
+	}
+	return fin;
 }
 const Rc operator - (const Rc& L, const Rc& R)
 {
+	int temNumL = L.num;
+	int temDenL = L.den;
+	int temNumD = R.num;
+	int temDenD = R.den;
+	Rc fin;
+	if (L.den == D.den)
+	{
+		fin = ((temNumL * temDenD) - (temNumD * temDenL) ) / temDen; 
+	}else
+	{
+		fin = ((temNumL * temDenD) - (temNumD * temDenL) ) / (temDen * temDenL); 		
+	}
+	return fin;
 }
 const Rc operator / (const Rc& L, const Rc& R)
 {
@@ -91,7 +117,8 @@ const Rc operator / (const Rc& L, const Rc& R)
 	int temDenL = L.den;
 	int temNumD = R.num;
 	int temDenD = R.den;
-	return (temNumD * temDenL) / (temNumL * temDenD);
+	Rc fin = (temNumD * temDenL) / (temNumL * temDenD);
+	return fin;
 	
 }
 const Rc operator * (const Rc& L, const Rc& R)
@@ -100,7 +127,8 @@ const Rc operator * (const Rc& L, const Rc& R)
 	int temDenL = L.den;
 	int temNumD = R.num;
 	int temDenD = R.den;
-	return (temNumD * temNumL) / (temDenL * temDenD);
+	Rc fin = (temNumD * temNumL) / (temDenL * temDenD);
+	return fin;
 }
 
 ostream& operator<<(ostream& output, const Rc& Num)
