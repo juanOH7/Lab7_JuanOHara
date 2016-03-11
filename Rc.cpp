@@ -14,8 +14,16 @@ void numeroSimp(int*, int, int);
 
 Rc::Rc(int num, int den)
 {
-	cout << "Construct In";
 	int arreglo[2];
+	if (den == 0)
+	{
+		den = 1;
+	}
+	if (num < 0 && den < 0)
+	{
+		num *= -1;
+		den *= -1;
+	}
 	numeroSimp(arreglo, num, den);
 	this -> num = arreglo[0];
 	this -> den = arreglo[1];
@@ -63,63 +71,38 @@ void numeroSimp(int* arreglo, const int num, const int den)
 	arreglo[0] = temNum;
 	arreglo[1] = temDen;
 }
-/*
-const Rc& Rc::operator=(const Rc& r){
-	num = r.num;
-	den = r.den;
-	return *this;
-}*/
 
-string Rc::toString() const{
+string Rc::toString() const
+{
 	stringstream ss;
 	ss << num << " / " << den;
 	return ss.str();
 }
-/*const Rc Rc::operator-() const{
-   return Rc(-num, -den);
+
+const Rc operator + (const Rc& L, const Rc& R)
+{
+}
+const Rc operator - (const Rc& L, const Rc& R)
+{
+}
+const Rc operator / (const Rc& L, const Rc& R)
+{
+	int temNumL = L.num;
+	int temDenL = L.den;
+	int temNumD = R.num;
+	int temDenD = R.den;
+	return (temNumD * temDenL) / (temNumL * temDenD);
+	
+}
+const Rc operator * (const Rc& L, const Rc& R)
+{
+	int temNumL = L.num;
+	int temDenL = L.den;
+	int temNumD = R.num;
+	int temDenD = R.den;
+	return (temNumD * temNumL) / (temDenL * temDenD);
 }
 
-const Rc operator+(const Rc& lhs, const Rc& rhs){
-	Rc retVal = lhs;
-	retVal += rhs;
-	return retVal;
+ostream& operator<<(ostream& output, const Rc& Num)
+{
 }
-const Rc operator-(const Rc& lhs, const Rc& rhs){
-	Rc retVal = lhs;
-	retVal -= rhs;
-	return retVal;
-}
-*/
-/*
-ostream& operator<<(ostream& output, const Rc& Num){
-	if (Num.real == 0){
-		if (Num.imag == 0){
-			output << 0.0;
-		}else{
-			if (Num.imag == 1)
-				output << "i";
-			else if (Num.imag == -1)
-				output << "-i";
-			else
-				output << Num.imag << "i";
-		}
-	}else{
-		if (Num.imag == 0)
-			output << Num.real;
-		else
-			if (Num.imag == 1)
-				output << Num.real << "i";
-			else if (Num.imag == -1)
-				output << Num.real << "-i";
-			else	
-				output << Num.real << showpos << Num.imag << "i";
-	}
-	output << noshowpos;
-	return output;
-}
-*/
-/*
-istream& operator>>(istream& input, Rc& Num){
-	input >> Num.num >> Num.den;
-	return input;
-}*/
