@@ -13,9 +13,9 @@ public:
 	string toString() const;
 	const Rc& operator=(const Rc&);
 	friend ostream& operator<<(ostream&, const Rc&);
-	Rc operator+(const Rc&);
-	Rc operator-(const Rc&);
-	Rc operator/(const Rc&);
-	Rc operator*(const Rc&);
+	const Rc operator+(const Rc&);
+	const Rc operator-(const Rc&);
+	const Rc operator/(const Rc&);
+	const Rc operator*(const Rc&);
 };
 

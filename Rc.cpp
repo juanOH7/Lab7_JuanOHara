@@ -97,7 +97,7 @@ const Rc Rc::operator +(const Rc& R)
 	return Rc(nume, deno);
 }
 
-const Rc Rc::operator +(const Rc& R)
+const Rc Rc::operator -(const Rc& R)
 {	
 	int nume, deno;
 	if (den == R.den)
@@ -116,7 +116,7 @@ const Rc Rc::operator /(const Rc& R)
 	int deno = den * R.num;
 	return Rc(nume, deno);	
 }
-const Rc Rc::operator /(const Rc& R)
+const Rc Rc::operator *(const Rc& R)
 {
 	int nume = num * R.num;
 	int deno = den * R.den;
