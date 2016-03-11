@@ -28,7 +28,6 @@ Rc::Rc(int num, int den)
 	this -> num = arreglo[0];
 	this -> den = arreglo[1];
 }
-
 void numeroSimp(int* arreglo, const int num, const int den)
 {
 	int temNum = num;
@@ -78,57 +77,50 @@ string Rc::toString() const
 	ss << num << " / " << den;
 	return ss.str();
 }
+const Rc& Rc::operator=(const Rc& r){
+	num = r.num;
+	den = r.den;
+	return *this;
+}
 
-const Rc operator + (const Rc& L, const Rc& R)
-{
-	int temNumL = L.num;
-	int temDenL = L.den;
-	int temNumD = R.num;
-	int temDenD = R.den;
-	Rc fin;
-	if (L.den == D.den)
+const Rc Rc::operator +(const Rc& R)
+{	
+	int nume, deno;
+	if (den == R.den)
 	{
-		fin = ((temNumL * temDenD) + (temNumD * temDenL) ) / temDen; 
+		nume = num + R.num;
 	}else
 	{
-		fin = ((temNumL * temDenD) + (temNumD * temDenL) ) / (temDen * temDenL); 		
+		nume = (num * R.den) + (R.num * den);
+		deno = R.den * den; 		
 	}
-	return fin;
+	return Rc(nume, deno);
 }
-const Rc operator - (const Rc& L, const Rc& R)
-{
-	int temNumL = L.num;
-	int temDenL = L.den;
-	int temNumD = R.num;
-	int temDenD = R.den;
-	Rc fin;
-	if (L.den == D.den)
+
+const Rc Rc::operator +(const Rc& R)
+{	
+	int nume, deno;
+	if (den == R.den)
 	{
-		fin = ((temNumL * temDenD) - (temNumD * temDenL) ) / temDen; 
+		nume = num - R.num;
 	}else
 	{
-		fin = ((temNumL * temDenD) - (temNumD * temDenL) ) / (temDen * temDenL); 		
+		nume = (num * R.den) - (R.num * den);
+		deno = R.den * den; 		
 	}
-	return fin;
+	return Rc(nume, deno);
 }
-const Rc operator / (const Rc& L, const Rc& R)
+const Rc Rc::operator /(const Rc& R)
 {
-	int temNumL = L.num;
-	int temDenL = L.den;
-	int temNumD = R.num;
-	int temDenD = R.den;
-	Rc fin = (temNumD * temDenL) / (temNumL * temDenD);
-	return fin;
-	
+	int nume = num * R.den;
+	int deno = den * R.num;
+	return Rc(nume, deno);	
 }
-const Rc operator * (const Rc& L, const Rc& R)
+const Rc Rc::operator /(const Rc& R)
 {
-	int temNumL = L.num;
-	int temDenL = L.den;
-	int temNumD = R.num;
-	int temDenD = R.den;
-	Rc fin = (temNumD * temNumL) / (temDenL * temDenD);
-	return fin;
+	int nume = num * R.num;
+	int deno = den * R.den;
+	return Rc(nume, deno);	
 }
 
 ostream& operator<<(ostream& output, const Rc& Num)

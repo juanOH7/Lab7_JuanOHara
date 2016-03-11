@@ -9,12 +9,13 @@ class Rc
 {
 	int num, den;
 public:
-	Rc(int=0, int=0);
+	explicit Rc(int=0, int=0);
 	string toString() const;
+	const Rc& operator=(const Rc&);
 	friend ostream& operator<<(ostream&, const Rc&);
-	friend const Rc operator+(const Rc&, const Rc&);
-	friend const Rc operator-(const Rc&, const Rc&);
-	friend const Rc operator/(const Rc&, const Rc&);
-	friend const Rc operator*(const Rc&, const Rc&);
+	Rc operator+(const Rc&);
+	Rc operator-(const Rc&);
+	Rc operator/(const Rc&);
+	Rc operator*(const Rc&);
 };
 

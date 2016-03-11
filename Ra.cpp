@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
 		{
 			cout << "Numerador: ";
 			cin >> num;
-			cout << "Denominador: "
+			cout << "Denominador: ";
 			cin >> den;
 			Rc rac(num, den);
 			listaRac.push_back(rac);
@@ -37,13 +37,14 @@ int main(int argc, char const *argv[])
 			{
 				for (int i = 0; i < listaRac.size(); ++i)
 				{
-					cout << i + 1 << "-" << listaRac[i] << "\n";
+					cout << i + 1 << "-" << listaRac[i].toString() << "\n";
 				}
 				cout << "OP1:";
 				cin >> opcRac1;
 				cout << "OP2:";
 				cin >> opcRac2;
-				Rc sum(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Rc sum  = listaRac[opcRac1 - 1] + listaRac[opcRac2 - 1];
+				cout << sum.toString() << "\n";
 				Historial.push_back(sum.toString());
 			}
 		}
@@ -56,13 +57,14 @@ int main(int argc, char const *argv[])
 			{
 				for (int i = 0; i < listaRac.size(); ++i)
 				{
-					cout << i + 1 << "-" << listaRac[i] << "\n";
+					cout << i + 1 << "-" << listaRac[i].toString() << "\n";
 				}
 				cout << "OP1:";
 				cin >> opcRac1;
 				cout << "OP2:";
 				cin >> opcRac2;
-				Rc res(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Rc res = listaRac[opcRac1 - 1] - listaRac[opcRac2 - 1];
+				cout << res.toString() << "\n";
 				Historial.push_back(res.toString());
 			}
 		}
@@ -75,13 +77,14 @@ int main(int argc, char const *argv[])
 			{
 				for (int i = 0; i < listaRac.size(); ++i)
 				{
-					cout << i + 1 << "-" << listaRac[i] << "\n";
+					cout << i + 1 << "-" << listaRac[i].toString() << "\n";
 				}
 				cout << "OP1:";
 				cin >> opcRac1;
 				cout << "OP2:";
 				cin >> opcRac2;
-				Rc mult(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Rc mult = listaRac[opcRac1 - 1] * listaRac[opcRac2 - 1];
+				cout << mult.toString() << "\n";
 				Historial.push_back(mult.toString());
 			}
 		}
@@ -94,13 +97,14 @@ int main(int argc, char const *argv[])
 			{
 				for (int i = 0; i < listaRac.size(); ++i)
 				{
-					cout << i + 1 << "-" << listaRac[i] << "\n";
+					cout << i + 1 << "-" << listaRac[i].toString() << "\n";
 				}
 				cout << "OP1:";
 				cin >> opcRac1;
 				cout << "OP2:";
 				cin >> opcRac2;
-				Rc di(listaRac[opcRac1 - 1] , listaRac[opcRac2 - 1]);
+				Rc di = listaRac[opcRac1 - 1] / listaRac[opcRac2 - 1];
+				cout << di.toString() << "\n";
 				Historial.push_back(di.toString());
 			}
 		}
@@ -122,14 +126,6 @@ int main(int argc, char const *argv[])
 			cout << "Nein!!";
 		}
 	} while (opcMen != 7);
-	Rc a(30,8), b(12,6), c;
-	cout << a.toString();
-	cout << "\n";
-	cout << b.toString();
-	cout << "\n";
-	c = a * b;
-	cout << c.toString();
-	cout << "\n";
 	return 0;
 }
 
